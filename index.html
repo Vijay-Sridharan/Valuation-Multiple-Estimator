@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valuation Multiple Estimator · Elevar Equity Portfolio</title>
+<title>Valuation Multiple Estimator · Elevar Equity</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -30,13 +30,10 @@
   --red-pale:     #fdf0ee;
   --amber:        #d4820a;
   --amber-pale:   #fef8ee;
-  --blue:         #2563a8;
   --radius:       6px;
   --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
   --shadow-md:    0 4px 16px rgba(0,0,0,0.09);
-  --shadow-lg:    0 8px 32px rgba(0,0,0,0.12);
 }
-
 *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
 html { scroll-behavior: smooth; }
 body {
@@ -48,7 +45,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── TOP NAV ── */
+/* NAV */
 .topbar {
   background: var(--green-dark);
   padding: 0 32px;
@@ -57,23 +54,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.topbar-brand {
-  display: flex; align-items: center; gap: 12px;
-}
-.topbar-logo {
-  width: 34px; height: 34px;
-  background: var(--orange);
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px; font-weight: 600;
-  color: white; letter-spacing: -0.02em;
-}
-.topbar-name {
-  font-size: 14px; font-weight: 600;
-  color: white; letter-spacing: 0.01em;
-}
-.topbar-name span { color: #7de8cc; }
+.topbar-brand { display: flex; align-items: center; gap: 12px; }
 .topbar-tag {
   font-size: 11px; color: rgba(255,255,255,0.5);
   font-weight: 400; letter-spacing: 0.03em;
@@ -81,7 +62,7 @@ body {
   padding-left: 12px; margin-left: 4px;
 }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   background: var(--green-dark);
   color: white;
@@ -119,7 +100,7 @@ body {
   max-width: 580px; font-weight: 300; line-height: 1.7;
 }
 
-/* ── METHODOLOGY PILL ── */
+/* METHODOLOGY STRIP */
 .method-strip {
   max-width: 880px; margin: -4px auto 28px;
   padding: 0 32px;
@@ -150,7 +131,7 @@ body {
 }
 .method-pill strong { color: var(--green-dark); }
 
-/* ── MAIN LAYOUT ── */
+/* MAIN LAYOUT */
 .page { max-width: 880px; margin: 0 auto; padding: 0 32px 60px; }
 
 .section-label {
@@ -161,18 +142,17 @@ body {
 }
 .section-label::after { content:''; flex:1; height:1px; background:var(--grey-200); }
 
-/* ── CARD ── */
+/* CARD */
 .card {
   background: white;
   border: 1px solid var(--grey-200);
   border-radius: var(--radius);
   padding: 22px 24px;
   box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 .card:hover { box-shadow: var(--shadow-md); }
-.card.active-card { border-color: var(--green-light); }
-
 .card-num {
   font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--orange);
@@ -185,61 +165,17 @@ body {
 }
 .card-desc { font-size: 11px; color: var(--text-muted); margin-bottom: 16px; }
 
-/* ── INPUT GRID ── */
+/* INPUTS ROW */
 .inputs-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  margin-bottom: 14px;
 }
-.inputs-row.three-col { grid-template-columns: 1fr 1fr 1fr; }
-@media (max-width: 640px) {
-  .inputs-row, .inputs-row.three-col { grid-template-columns: 1fr; }
-}
+@media (max-width: 600px) { .inputs-row { grid-template-columns: 1fr; } }
 
-/* ── METRIC SELECTOR ── */
-.metric-group { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-@media (max-width: 600px) { .metric-group { grid-template-columns: 1fr; } }
-.metric-btn {
-  border: 1.5px solid var(--grey-200);
-  border-radius: var(--radius);
-  padding: 14px 14px 12px;
-  cursor: pointer;
-  background: white;
-  text-align: left;
-  transition: all 0.15s;
-  position: relative;
-}
-.metric-btn:hover { border-color: var(--green-light); background: var(--green-tint); }
-.metric-btn.active {
-  border-color: var(--green-mid);
-  background: var(--green-pale);
-}
-.metric-btn.active::before {
-  content: '✓';
-  position: absolute; top: 8px; right: 10px;
-  font-size: 11px; color: var(--green-mid); font-weight: 600;
-}
-.metric-btn-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.metric-btn-desc { font-size: 10px; color: var(--text-muted); }
-.metric-btn-tag {
-  display: inline-block; margin-top: 8px;
-  font-size: 9px; font-weight: 600; letter-spacing: 0.05em;
-  padding: 2px 8px;
-  background: var(--grey-100); border-radius: 10px;
-  color: var(--text-dim);
-}
-.metric-btn.active .metric-btn-tag {
-  background: var(--green-dark); color: white;
-}
-
-/* ── NUMBER INPUT ── */
+/* FIELD */
 .field-wrap { display: flex; flex-direction: column; gap: 6px; }
-.field-label {
-  font-size: 11px; font-weight: 500; color: var(--text-dim);
-  display: flex; align-items: center; gap: 6px;
-}
-.field-hint { font-size: 10px; color: var(--text-muted); font-weight: 400; }
+.field-label { font-size: 11px; font-weight: 500; color: var(--text-dim); }
 .input-row {
   display: flex; align-items: center;
   border: 1.5px solid var(--grey-200);
@@ -250,10 +186,9 @@ body {
 }
 .input-row:focus-within {
   border-color: var(--green-mid);
-  box-shadow: 0 0 0 3px rgba(42,96,73,0.1);
+  box-shadow: 0 0 0 3px rgba(0,165,129,0.1);
 }
 .input-row.error-field { border-color: var(--red); }
-.input-row.error-field:focus-within { box-shadow: 0 0 0 3px rgba(192,57,43,0.1); }
 .input-prefix, .input-suffix {
   padding: 0 10px;
   background: var(--grey-100);
@@ -265,36 +200,36 @@ body {
 }
 .input-suffix { border-right: none; border-left: 1px solid var(--grey-200); }
 .num-input {
-  flex: 1;
-  border: none; outline: none;
+  flex: 1; border: none; outline: none;
   padding: 0 10px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px; font-weight: 500;
-  color: var(--text);
-  background: transparent;
-  height: 38px;
-  width: 0; /* flex override */
+  color: var(--text); background: transparent;
+  height: 38px; width: 0;
 }
 .num-input::placeholder { color: var(--grey-300); font-weight: 400; }
 
-/* ── SLIDER ── */
+/* SLIDER */
 .slider-wrap { display: flex; flex-direction: column; gap: 6px; }
 .slider-header { display: flex; justify-content: space-between; align-items: center; }
 .slider-label { font-size: 11px; font-weight: 500; color: var(--text-dim); }
-.slider-val-badge {
+.slider-input-group { display: flex; align-items: center; gap: 2px; }
+.slider-text-input {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px; font-weight: 500;
   color: var(--green-dark);
   background: var(--green-pale);
-  border: 1px solid var(--grey-200);
-  padding: 2px 10px; border-radius: 4px;
-  min-width: 64px; text-align: center;
-  transition: all 0.15s;
+  border: 1.5px solid var(--green-light);
+  border-radius: 4px;
+  padding: 2px 6px;
+  width: 62px; text-align: right;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
 }
-.slider-val-badge.neg { color: var(--red); background: var(--red-pale); }
-.slider-val-badge.warn { color: var(--amber); background: var(--amber-pale); }
-.slider-val-badge.pos { color: var(--green-dark); background: var(--green-pale); }
-
+.slider-text-input:focus { border-color: var(--green-mid); background: #fff; }
+.slider-text-input.neg { color: var(--red); background: var(--red-pale); border-color: var(--red); }
+.slider-text-input.warn { color: var(--amber); background: var(--amber-pale); border-color: var(--amber); }
+.slider-input-suffix { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim); min-width: 14px; }
 input[type=range] {
   -webkit-appearance: none; appearance: none;
   width: 100%; height: 5px;
@@ -304,130 +239,50 @@ input[type=range] {
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; appearance: none;
-  width: 18px; height: 18px;
-  border-radius: 50%;
+  width: 18px; height: 18px; border-radius: 50%;
   background: var(--green-dark);
   border: 3px solid white;
   box-shadow: 0 0 0 1.5px var(--green-mid), 0 2px 6px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer; transition: transform 0.15s;
 }
-input[type=range]:hover::-webkit-slider-thumb {
-  transform: scale(1.15);
-  box-shadow: 0 0 0 2px var(--green-mid), 0 3px 10px rgba(0,0,0,0.25);
-}
+input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.15); }
 input[type=range]::-moz-range-thumb {
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  background: var(--green-dark);
-  border: 3px solid white;
-  cursor: pointer;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--green-dark); border: 3px solid white; cursor: pointer;
 }
 .slider-ticks {
   display: flex; justify-content: space-between;
   font-size: 9px; color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
 }
-/* ── SLIDER TEXT INPUT ── */
-.slider-input-group {
-  display: flex; align-items: center; gap: 2px;
-}
-.slider-text-input {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; font-weight: 500;
-  color: var(--green-dark);
-  background: var(--green-pale);
-  border: 1.5px solid var(--green-light);
-  border-radius: 4px;
-  padding: 2px 6px;
-  width: 62px;
-  text-align: right;
-  outline: none;
-  transition: border-color 0.15s, background 0.15s;
-}
-.slider-text-input:focus {
-  border-color: var(--green-mid);
-  background: #fff;
-}
-.slider-text-input.neg { color: var(--red); background: var(--red-pale); border-color: var(--red); }
-.slider-text-input.warn { color: var(--amber); background: var(--amber-pale); border-color: var(--amber); }
-.slider-input-suffix {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; font-weight: 500;
-  color: var(--text-dim);
-  min-width: 14px;
-}
 
-/* ── CONDITIONAL PANEL ── */
-.cond-panel {
-  display: none;
-  margin-top: 14px;
-  background: var(--green-tint);
-  border: 1px dashed var(--green-light);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-}
-.cond-panel.shown { display: block; }
-.cond-panel-head {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--green-mid);
-  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
-}
-.cond-panel-head::before {
-  content: '→'; font-size: 12px;
-}
-.cond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 480px) { .cond-grid { grid-template-columns: 1fr; } }
-
-/* ── ERROR / ALERT ── */
+/* ALERT */
 .alert {
-  display: none;
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-top: 12px;
-  font-size: 12px;
-  line-height: 1.6;
+  display: none; border-radius: var(--radius);
+  padding: 14px 16px; margin-top: 12px;
+  font-size: 12px; line-height: 1.6;
 }
 .alert.shown { display: block; }
-.alert-error {
-  background: var(--red-pale);
-  border: 1px solid #e8a09a;
-  border-left: 3px solid var(--red);
-}
-.alert-warn {
-  background: var(--amber-pale);
-  border: 1px solid #f0c97a;
-  border-left: 3px solid var(--amber);
-}
+.alert-error { background: var(--red-pale); border: 1px solid #e8a09a; border-left: 3px solid var(--red); }
+.alert-warn  { background: var(--amber-pale); border: 1px solid #f0c97a; border-left: 3px solid var(--amber); }
 .alert-title {
   font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
   text-transform: uppercase; margin-bottom: 5px;
-  display: flex; align-items: center; gap: 6px;
 }
 .alert-error .alert-title { color: var(--red); }
-.alert-warn .alert-title { color: var(--amber); }
+.alert-warn  .alert-title { color: var(--amber); }
 .alert-body { color: var(--text-mid); }
-.alert-fix { margin-top: 6px; color: var(--text-dim); font-size: 11px; }
-.alert-fix strong { color: var(--green-dark); }
 
-/* ── DIVIDER ── */
-.divider {
-  border: none; border-top: 1px solid var(--grey-200);
-  margin: 20px 0;
-}
-
-/* ── RESULT SECTION ── */
+/* RESULT */
 .result-shell {
   background: white;
   border: 1px solid var(--grey-200);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   overflow: hidden;
-  margin-top: 4px;
 }
 .result-header {
-  background: var(--green-dark);
-  color: white;
+  background: var(--green-dark); color: white;
   padding: 18px 24px;
   display: flex; justify-content: space-between; align-items: center;
 }
@@ -435,13 +290,16 @@ input[type=range]::-moz-range-thumb {
   font-family: 'Playfair Display', serif;
   font-size: 17px; font-weight: 400;
 }
-.result-header-meta {
-  font-size: 10px; color: rgba(255,255,255,0.55);
-  font-weight: 400; letter-spacing: 0.05em;
-}
+.result-header-meta { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; }
 .result-body { padding: 24px; }
 
-/* ── MULTIPLE HERO ── */
+.result-invalid { text-align: center; padding: 32px 16px; display: none; }
+.result-invalid.shown { display: block; }
+.result-valid { display: block; }
+.result-valid.hidden { display: none; }
+.invalid-icon { font-size: 32px; margin-bottom: 12px; }
+.invalid-msg { font-size: 13px; color: var(--text-dim); }
+
 .multiple-hero {
   background: var(--green-pale);
   border: 1px solid var(--grey-200);
@@ -454,8 +312,7 @@ input[type=range]::-moz-range-thumb {
 .multiple-main { display: flex; flex-direction: column; }
 .multiple-label {
   font-size: 10px; font-weight: 600; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--green-mid);
-  margin-bottom: 4px;
+  text-transform: uppercase; color: var(--green-mid); margin-bottom: 4px;
 }
 .multiple-number {
   font-family: 'Playfair Display', serif;
@@ -465,27 +322,18 @@ input[type=range]::-moz-range-thumb {
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .multiple-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
-
 .multiple-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
 .metric-pill {
-  background: var(--green-dark);
-  color: white;
+  background: var(--green-dark); color: white;
   font-size: 11px; font-weight: 500;
   padding: 4px 12px; border-radius: 20px;
 }
-.implied-ev {
-  text-align: right;
-}
+.implied-ev { text-align: right; }
 .implied-ev-label { font-size: 10px; color: var(--text-muted); }
-.implied-ev-val {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 16px; font-weight: 500; color: var(--orange);
-}
+.implied-ev-val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 500; color: var(--orange); }
 
-/* ── FORMULA BOX ── */
 .formula-box {
-  background: var(--grey-100);
-  border: 1px solid var(--grey-200);
+  background: var(--grey-100); border: 1px solid var(--grey-200);
   border-radius: var(--radius);
   padding: 12px 16px;
   font-family: 'JetBrains Mono', monospace;
@@ -496,23 +344,17 @@ input[type=range]::-moz-range-thumb {
 .fo { color: var(--text-muted); }
 .fr { color: var(--orange); font-weight: 500; }
 
-/* ── WATERFALL ── */
 .wf-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
 .wf-table tr { border-bottom: 1px solid var(--grey-100); }
 .wf-table tr:last-child { border-bottom: none; }
 .wf-table td { padding: 9px 6px; font-size: 12px; }
 .wf-table .wf-name { color: var(--text-mid); }
 .wf-table .wf-note { color: var(--text-muted); font-size: 10px; font-family: 'JetBrains Mono', monospace; }
-.wf-table .wf-num {
-  font-family: 'JetBrains Mono', monospace;
-  text-align: right; font-size: 13px;
-  color: var(--text); font-weight: 500;
-}
+.wf-table .wf-num { font-family: 'JetBrains Mono', monospace; text-align: right; font-size: 13px; color: var(--text); font-weight: 500; }
 .wf-final td { border-top: 2px solid var(--green-mid) !important; }
 .wf-final .wf-name { color: var(--green-dark); font-weight: 600; font-size: 13px; }
 .wf-final .wf-num { color: var(--green-dark); font-size: 16px; font-weight: 600; }
 
-/* ── SCENARIOS ── */
 .scenario-row {
   display: grid; grid-template-columns: 1fr 1fr 1fr;
   gap: 2px; border: 1px solid var(--grey-200);
@@ -520,34 +362,17 @@ input[type=range]::-moz-range-thumb {
 }
 .sc-cell { background: var(--grey-100); padding: 12px 14px; text-align: center; }
 .sc-cell.base { background: var(--green-pale); }
-.sc-label {
-  font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; margin-bottom: 4px;
-}
+.sc-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
 .sc-label.bear { color: var(--red); }
 .sc-label.base { color: var(--green-mid); }
 .sc-label.bull { color: var(--green-dark); }
-.sc-val {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 16px; font-weight: 500;
-}
+.sc-val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 500; }
 .sc-val.bear { color: var(--red); }
 .sc-val.base { color: var(--green-dark); font-size: 20px; }
 .sc-val.bull { color: var(--green-dark); }
 .sc-ev { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
 
-/* ── INVALID STATE OVERLAY ── */
-.result-invalid {
-  text-align: center; padding: 32px 16px;
-  display: none;
-}
-.result-invalid.shown { display: block; }
-.result-valid { display: block; }
-.result-valid.hidden { display: none; }
-.invalid-icon { font-size: 32px; margin-bottom: 12px; }
-.invalid-msg { font-size: 13px; color: var(--text-dim); }
-
-/* ── FOOTER ── */
+/* FOOTER */
 .page-footer {
   max-width: 880px; margin: 0 auto;
   padding: 0 32px 40px;
@@ -558,30 +383,8 @@ input[type=range]::-moz-range-thumb {
 .footer-note { max-width: 560px; }
 .footer-stamp {
   font-family: 'Playfair Display', serif;
-  font-style: italic; color: var(--green-mid);
-  font-size: 13px;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes slideDown {
-  from { opacity:0; transform:translateY(-8px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-.cond-panel.shown { animation: slideDown 0.2s ease; }
-@keyframes pop {
-  0%,100% { transform: scale(1); }
-  50%      { transform: scale(1.04); }
-}
-.multiple-number.pop { animation: pop 0.3s ease; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 540px) {
-  .topbar { padding: 0 16px; }
-  .hero   { padding: 28px 16px 40px; }
-  .method-strip, .page { padding-left: 16px; padding-right: 16px; }
-  .multiple-hero { flex-direction: column; }
-  .multiple-right { align-items: flex-start; }
-  .scenario-row { grid-template-columns: 1fr; }
+  font-size: 12px; color: var(--green-mid);
+  letter-spacing: 0.05em; white-space: nowrap;
 }
 </style>
 </head>
@@ -599,10 +402,9 @@ input[type=range]::-moz-range-thumb {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    
     <div class="hero-eyebrow">Valuation Framework</div>
     <h1>Valuation <em>Multiple</em> Estimator</h1>
-    <p class="hero-sub">A PEG-anchored framework for estimating fair valuation multiples across Elevar's portfolio. Adjust inputs below to explore scenarios. For founder reference — not investment advice.</p>
+    <p class="hero-sub">A PEG-anchored framework for estimating fair EV/Revenue multiples across Elevar's portfolio. Adjust inputs below to explore scenarios. For founder reference — not investment advice.</p>
   </div>
 </div>
 
@@ -611,248 +413,133 @@ input[type=range]::-moz-range-thumb {
   <div class="method-box">
     <div class="method-head">Core Methodology</div>
     <div class="method-pills">
+      <div class="method-pill">Formula: <strong>EV / Revenue = PAT% × Growth% × Narrative</strong></div>
       <div class="method-pill">Anchor: <strong>PE 20× @ 20% growth</strong></div>
       <div class="method-pill">PEG ratio: <strong>1.0×</strong> → PE = Growth %</div>
-      <div class="method-pill">GMV std. take rate: <strong>customisable</strong></div>
-      <div class="method-pill">GM std. margin: <strong>customisable</strong></div>
-      <div class="method-pill">Base market: <strong>Listed equity comps</strong></div>
+      <div class="method-pill">Assumes: <strong>Net Debt ≈ 0 · No minority interests · Steady-state margin</strong></div>
     </div>
   </div>
-
 </div>
 
 <!-- PAGE BODY -->
 <div class="page">
 
-  <!-- SECTION A: METRIC & BASE -->
-  <div class="section-label">Step 1 — Base Metric &amp; Size</div>
+  <div class="section-label">Inputs</div>
 
+  <!-- INPUT 1: Revenue Size -->
   <div class="card">
     <div class="card-num">Input 01</div>
-    <div class="card-title">Select Base Valuation Metric</div>
-    <div class="card-desc">Choose the metric your valuation multiple will be expressed on</div>
-
-    <div class="metric-group" id="metricGroup">
-      <button class="metric-btn active" data-metric="revenue" onclick="selectMetric('revenue',this)">
-        <div class="metric-btn-name">Revenue</div>
-        <div class="metric-btn-desc">Net revenue / top-line; direct multiple</div>
-        <span class="metric-btn-tag">EV / Revenue</span>
-      </button>
-      <button class="metric-btn" data-metric="gmv" onclick="selectMetric('gmv',this)">
-        <div class="metric-btn-name">GMV</div>
-        <div class="metric-btn-desc">Gross merchandise value; marketplace / platform</div>
-        <span class="metric-btn-tag">EV / GMV · needs take rate</span>
-      </button>
-      <button class="metric-btn" data-metric="gm" onclick="selectMetric('gm',this)">
-        <div class="metric-btn-name">Gross Margin</div>
-        <div class="metric-btn-desc">Gross profit; SaaS / high-margin businesses</div>
-        <span class="metric-btn-tag">EV / Gross Profit · needs GM%</span>
-      </button>
-    </div>
-
-    <!-- Metric size input -->
-    <div style="margin-top:18px;">
+    <div class="card-title">Revenue Size</div>
+    <div class="card-desc">Annual revenue in USD millions — optional. Required only to show implied enterprise value.</div>
+    <div style="max-width:280px;">
       <div class="field-wrap">
-        <div class="field-label">
-          <span id="metricSizeLabel">Annual Revenue (USD $M)</span>
-          <span class="field-hint">— current or run-rate</span>
-        </div>
-        <div class="input-row" id="metricSizeRow">
-          <div class="input-prefix">$</div>
-          <input type="number" class="num-input" id="metricSizeInput"
-                 placeholder="e.g. 10" min="0.01" step="0.1"
-                 oninput="calculate()">
-          <div class="input-suffix">M</div>
+        <div class="field-label">Annual Revenue</div>
+        <div class="input-row" id="sizeRow">
+          <span class="input-prefix">$</span>
+          <input class="num-input" type="number" id="metricSize" min="0" placeholder="e.g. 25" oninput="calculate()">
+          <span class="input-suffix">M</span>
         </div>
       </div>
     </div>
-
-    <!-- CONDITIONAL PANEL: GMV take rate -->
-    <div class="cond-panel" id="panelGMV">
-      <div class="cond-panel-head">Additional input required for GMV</div>
-      <div class="cond-grid">
-        <div class="slider-wrap">
-          <div class="slider-header">
-            <span class="slider-label">Take Rate (Revenue / GMV)</span>
-            <div class="slider-input-group">
-              <input type="number" class="slider-text-input" id="takeRateInput"
-                     min="0.1" max="100" step="0.1" value="15"
-                     oninput="onTextInput(this,'takeRateSlider','takeRateKey','%',false)">
-              <span class="slider-input-suffix">%</span>
-            </div>
-          </div>
-          <input type="range" id="takeRateSlider" min="0.1" max="100" step="0.1" value="15"
-                 oninput="onSliderNew(this,'takeRateInput','takeRateKey','%',false); calculate()">
-          <div class="slider-ticks"><span>0.1%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
-        </div>
-        <div style="font-size:11px;color:var(--text-dim);line-height:1.7;padding-top:4px;">
-          <strong style="color:var(--text-mid)">What is take rate?</strong><br>
-          The % of GMV retained as net revenue. Typical ranges: e-commerce 1–3%, food delivery 15–25%, software marketplace 20–30%.
-        </div>
-      </div>
-      <div class="alert alert-error" id="errTakeRate">
-        <div class="alert-title">⚠ Invalid Take Rate</div>
-        <div class="alert-body" id="errTakeRateMsg"></div>
-        <div class="alert-fix" id="errTakeRateFix"></div>
-      </div>
+    <div class="alert alert-error" id="sizeError">
+      <div class="alert-title">⚠ Invalid Input</div>
+      <div class="alert-body">Revenue must be greater than zero.</div>
     </div>
+  </div>
 
-    <!-- CONDITIONAL PANEL: GM% -->
-    <div class="cond-panel" id="panelGM">
-      <div class="cond-panel-head">Additional input required for Gross Margin</div>
-      <div class="cond-grid">
-        <div class="slider-wrap">
-          <div class="slider-header">
-            <span class="slider-label">Gross Margin % (of Revenue)</span>
-            <div class="slider-input-group">
-              <input type="number" class="slider-text-input" id="gmPctInput"
-                     min="0.1" max="99.9" step="0.1" value="50"
-                     oninput="onTextInput(this,'gmPctSlider','gmPct','%',false)">
-              <span class="slider-input-suffix">%</span>
-            </div>
-          </div>
-          <input type="range" id="gmPctSlider" min="0.1" max="99.9" step="0.1" value="50"
-                 oninput="onSliderNew(this,'gmPctInput','gmPct','%',false); calculate()">
-          <div class="slider-ticks"><span>0.1%</span><span>25%</span><span>50%</span><span>75%</span><span>99.9%</span></div>
-        </div>
-        <div style="font-size:11px;color:var(--text-dim);line-height:1.7;padding-top:4px;">
-          <strong style="color:var(--text-mid)">What is Gross Margin?</strong><br>
-          Revenue minus cost of goods sold ÷ Revenue. Typical ranges: SaaS 70–85%, marketplace 50–70%, distribution / logistics 10–30%.
+  <!-- INPUT 2: Growth -->
+  <div class="card">
+    <div class="card-num">Input 02</div>
+    <div class="card-title">Year-on-Year Growth Rate</div>
+    <div class="card-desc">Expected revenue growth rate. The PE anchor scales directly with this — PE = Growth%.</div>
+    <div class="slider-wrap">
+      <div class="slider-header">
+        <span class="slider-label">YoY Growth</span>
+        <div class="slider-input-group">
+          <input class="slider-text-input" type="number" id="growthText" value="30" min="-50" max="100" oninput="syncFromText('growth')">
+          <span class="slider-input-suffix">%</span>
         </div>
       </div>
-      <div class="alert alert-error" id="errGMPct">
-        <div class="alert-title">⚠ Invalid Gross Margin</div>
-        <div class="alert-body" id="errGMPctMsg"></div>
-        <div class="alert-fix" id="errGMPctFix"></div>
-      </div>
+      <input type="range" id="growthSlider" min="-50" max="100" step="1" value="30" oninput="syncFromSlider('growth')">
+      <div class="slider-ticks"><span>−50%</span><span>0%</span><span>50%</span><span>100%</span></div>
     </div>
-  </div><!-- /card -->
-
-  <!-- SECTION B: GROWTH & PROFITABILITY -->
-  <div class="section-label" style="margin-top:20px;">Step 2 — Growth &amp; Profitability Assumptions</div>
-
-  <div class="inputs-row">
-
-    <!-- Growth -->
-    <div class="card">
-      <div class="card-num">Input 02</div>
-      <div class="card-title">YoY Growth Rate</div>
-      <div class="card-desc">Projected steady-state growth of your selected metric</div>
-      <div class="slider-wrap">
-        <div class="slider-header">
-          <span class="slider-label">Growth Rate (% per annum)</span>
-          <div class="slider-input-group">
-            <input type="number" class="slider-text-input" id="growthInput"
-                   min="0.1" max="100" step="0.1" value="30"
-                   oninput="onTextInput(this,'growthSlider','growth','%',false)">
-            <span class="slider-input-suffix">%</span>
-          </div>
-        </div>
-        <input type="range" id="growthSlider" min="0.1" max="100" step="0.1" value="30"
-               oninput="onSliderNew(this,'growthInput','growth','%',false); calculate()">
-        <div class="slider-ticks"><span>0.1%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
-      </div>
-      <div class="alert alert-error" id="errGrowth" style="margin-top:10px;">
-        <div class="alert-title">⚠ Non-Positive Growth</div>
-        <div class="alert-body" id="errGrowthMsg"></div>
-        <div class="alert-fix" id="errGrowthFix"></div>
-      </div>
+    <div class="alert alert-error" id="growthError">
+      <div class="alert-title">⚠ Undefined</div>
+      <div class="alert-body">Growth ≤ 0% collapses the PE anchor — no meaningful multiple can be derived.</div>
     </div>
-
-    <!-- PAT Margin -->
-    <div class="card">
-      <div class="card-num">Input 03</div>
-      <div class="card-title">Steady-State PAT Margin</div>
-      <div class="card-desc">Normalised long-run Profit After Tax as % of net revenue</div>
-      <div class="slider-wrap">
-        <div class="slider-header">
-          <span class="slider-label">PAT Margin (% of Revenue)</span>
-          <div class="slider-input-group">
-            <input type="number" class="slider-text-input" id="patInput"
-                   min="0.1" max="50" step="0.1" value="15"
-                   oninput="onTextInput(this,'patSlider','pat','%',false)">
-            <span class="slider-input-suffix">%</span>
-          </div>
-        </div>
-        <input type="range" id="patSlider" min="0.1" max="50" step="0.1" value="15"
-               oninput="onSliderNew(this,'patInput','pat','%',false); calculate()">
-        <div class="slider-ticks"><span>0.1%</span><span>12.5%</span><span>25%</span><span>37.5%</span><span>50%</span></div>
-      </div>
-      <div class="alert alert-error" id="errPAT" style="margin-top:10px;">
-        <div class="alert-title">⚠ PAT Exceeds Gross Margin</div>
-        <div class="alert-body" id="errPATMsg"></div>
-        <div class="alert-fix" id="errPATFix"></div>
-      </div>
+    <div class="alert alert-warn" id="growthWarn">
+      <div class="alert-title">⚡ High Growth</div>
+      <div class="alert-body">Growth &gt; 100% is unusual. Calculation proceeds but treat the output with caution.</div>
     </div>
+  </div>
 
-  </div><!-- /inputs-row -->
+  <!-- INPUT 3: PAT Margin -->
+  <div class="card">
+    <div class="card-num">Input 03</div>
+    <div class="card-title">Steady-State PAT Margin</div>
+    <div class="card-desc">Normalised profit after tax as % of revenue — enter what the business earns at scale, not current margins.</div>
+    <div class="slider-wrap">
+      <div class="slider-header">
+        <span class="slider-label">PAT Margin</span>
+        <div class="slider-input-group">
+          <input class="slider-text-input" type="number" id="patText" value="15" min="1" max="50" oninput="syncFromText('pat')">
+          <span class="slider-input-suffix">%</span>
+        </div>
+      </div>
+      <input type="range" id="patSlider" min="1" max="50" step="1" value="15" oninput="syncFromSlider('pat')">
+      <div class="slider-ticks"><span>1%</span><span>15%</span><span>30%</span><span>50%</span></div>
+    </div>
+    <div class="alert alert-error" id="patError">
+      <div class="alert-title">⚠ Invalid</div>
+      <div class="alert-body">PAT margin must be between 1% and 50%.</div>
+    </div>
+  </div>
 
-  <!-- Narrative -->
-  <div class="card" style="margin-top:0;">
+  <!-- INPUT 4: Narrative -->
+  <div class="card">
     <div class="card-num">Input 04</div>
-    <div class="card-title">Narrative Discount / Premium</div>
-    <div class="card-desc">Qualitative multiple adjustment for story, category leadership, moat, and team quality</div>
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;align-items:start;">
-      <div class="slider-wrap">
-        <div class="slider-header">
-          <span class="slider-label">Multiple Adjustment Factor</span>
-          <div class="slider-input-group">
-            <input type="number" class="slider-text-input" id="narrativeInput"
-                   min="0.5" max="2.0" step="0.01" value="1.00"
-                   oninput="onNarrativeTextInput(this)">
-            <span class="slider-input-suffix">×</span>
-          </div>
+    <div class="card-title">Narrative Premium / Discount</div>
+    <div class="card-desc">Qualitative overlay for factors not captured by the formula — market position, moat, team, category tailwinds.</div>
+    <div class="slider-wrap">
+      <div class="slider-header">
+        <span class="slider-label">Narrative Factor</span>
+        <div class="slider-input-group">
+          <input class="slider-text-input" type="number" id="narrativeText" value="1.0" min="0.5" max="2.0" step="0.1" oninput="syncFromText('narrative')">
+          <span class="slider-input-suffix">×</span>
         </div>
-        <input type="range" id="narrativeSlider" min="0.5" max="2.0" step="0.01" value="1.00"
-               oninput="onNarrativeSliderNew(this); calculate()">
-        <div class="slider-ticks"><span>0.5×</span><span>0.75×</span><span>1.0×</span><span>1.25×</span><span>1.5×</span><span>1.75×</span><span>2.0×</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:10px;margin-top:4px;">
-        <div style="color:var(--red)">0.5× Distressed</div>
-        <div style="color:var(--amber)">0.75× Below peers</div>
-        <div style="color:var(--text-dim)">1.0× Market rate</div>
-        <div style="color:var(--blue)">1.25× Category+</div>
-        <div style="color:var(--green-mid)">1.5× Leader</div>
-        <div style="color:var(--green-dark)">2.0× Exceptional</div>
-      </div>
+      <input type="range" id="narrativeSlider" min="0.5" max="2.0" step="0.1" value="1.0" oninput="syncFromSlider('narrative')">
+      <div class="slider-ticks"><span>0.5× discount</span><span>1.0× par</span><span>2.0× premium</span></div>
     </div>
+    <div id="narrativeLabel" style="margin-top:8px;font-size:11px;color:var(--text-muted);font-style:italic;"></div>
   </div>
 
-  <!-- SECTION C: RESULTS -->
-  <div class="section-label" style="margin-top:20px;">Valuation Output</div>
-
-  <!-- Global error for results -->
-  <div class="alert alert-error shown" id="globalError" style="display:none;margin-bottom:14px;">
-    <div class="alert-title" id="globalErrTitle">⚠ Cannot Compute</div>
-    <div class="alert-body" id="globalErrMsg">Please correct the inputs above.</div>
-    <div class="alert-fix" id="globalErrFix"></div>
-  </div>
+  <!-- RESULT -->
+  <div class="section-label">Result</div>
 
   <div class="result-shell">
     <div class="result-header">
-      <span class="result-header-title">Estimated Fair Valuation Multiple</span>
-      <span class="result-header-meta" id="resultMetaLabel">PEG = 1.0 · Revenue basis</span>
+      <span class="result-header-title">EV / Revenue Multiple</span>
+      <span class="result-header-meta">PEG-anchored · Revenue basis</span>
     </div>
     <div class="result-body">
 
-      <!-- INVALID STATE -->
       <div class="result-invalid" id="resultInvalid">
         <div class="invalid-icon">⚠</div>
-        <div class="invalid-msg" id="invalidMsg">Correct the input errors above to see your valuation estimate.</div>
+        <div class="invalid-msg" id="invalidMsg">Adjust inputs above to calculate a multiple.</div>
       </div>
 
-      <!-- VALID STATE -->
       <div class="result-valid" id="resultValid">
 
         <div class="multiple-hero">
           <div class="multiple-main">
-            <div class="multiple-label" id="multipleLabel">EV / Revenue Multiple</div>
-            <div class="multiple-number" id="multipleNumber">4.5×</div>
-            <div class="multiple-sub" id="multipleSub">at 30% growth · 15% PAT · 1.0× narrative</div>
+            <div class="multiple-label">EV / Revenue Multiple</div>
+            <div class="multiple-number" id="multipleNumber">—</div>
+            <div class="multiple-sub" id="multipleSub"></div>
           </div>
           <div class="multiple-right">
-            <span class="metric-pill" id="metricPill">EV / Revenue</span>
-            <div class="implied-ev" id="impliedEvBlock">
+            <span class="metric-pill">EV / Revenue</span>
+            <div class="implied-ev" id="impliedEvBlock" style="display:none;">
               <div class="implied-ev-label">Implied Enterprise Value</div>
               <div class="implied-ev-val" id="impliedEvVal">—</div>
             </div>
@@ -881,450 +568,204 @@ input[type=range]::-moz-range-thumb {
           </div>
         </div>
 
-      </div><!-- /result-valid -->
-    </div><!-- /result-body -->
-  </div><!-- /result-shell -->
-
-</div><!-- /page -->
-
-<!-- ASSUMPTIONS -->
-<div style="max-width:900px;margin:32px auto 0;padding:0 24px 40px;">
-  <div style="border-top:1px solid #d4ebe4;padding-top:24px;">
-    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#00a581;margin-bottom:14px;">Assumptions &amp; Limitations</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
-
-      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
-        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">1 · No Leverage</div>
-        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Assumes Net Debt = 0, so Equity Value ≈ Enterprise Value. The PE anchor is an equity multiple; EV/Revenue and EV/GMV are enterprise multiples. Valid for equity-funded early-stage companies. Adjust for leveraged businesses.</div>
       </div>
-
-      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
-        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">2 · No Minority Interests</div>
-        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Treats the entity as 100% owned. Where significant subsidiaries are not wholly owned, the multiple will overstate value attributable to the parent. Use a sum-of-parts approach instead.</div>
-      </div>
-
-      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
-        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">3 · Steady-State PAT Margin</div>
-        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Enter the normalised at-scale margin, not the current one. Current losses will produce undefined multiples. Think of this as the terminal-year margin in a DCF — what the business earns once growth moderates.</div>
-      </div>
-
-      <div style="padding:12px 14px;background:#fff8f3;border:1px solid #f2d4b8;border-top:2px solid #e87c2e;border-radius:6px;">
-        <div style="font-size:10px;font-weight:700;color:#7a3a10;margin-bottom:4px;">4 · Financial Services</div>
-        <div style="font-size:11px;color:#5a3a20;line-height:1.6;">Not directly applicable to banks or NBFCs — revenue is a function of leverage, making EV/Revenue unreliable. Use PE directly (Revenue = PAT, all margins at 100%). For P/BV: enter Loan Book as GTV and NIM as take rate. Using equity ratio as take rate works algebraically but makes PAT margin mean ROE — use with care.</div>
-      </div>
-
     </div>
   </div>
-</div>
+
+</div><!-- /page -->
 
 <!-- FOOTER -->
 <footer class="page-footer">
   <div class="footer-note">
-    <strong style="color:var(--text-mid)">Methodology:</strong> PEG = 1.0, anchored at PE 20× for 20% PAT growth on listed market comps. For GMV, EV/GMV = take rate × PAT% × PE. For Gross Margin, EV/GP = (PAT% ÷ GM%) × PE. Narrative factor applies as a qualitative overlay. Estimates are indicative only and do not constitute investment advice or a formal valuation.
+    <strong style="color:var(--text-mid)">Methodology:</strong> PEG = 1.0, anchored at PE 20× for 20% PAT growth on listed market comps. EV/Revenue = PAT% × Growth% × Narrative. Assumes Net Debt ≈ 0; not applicable to leveraged or financial services entities without adjustment. Estimates are indicative only and do not constitute investment advice or a formal valuation.
   </div>
   <div class="footer-stamp">Elevar Equity · Portfolio Tools</div>
 </footer>
 
 <script>
-// ══════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════
 const S = {
-  metric:    'revenue',
-  metricSize: null,       // $M, null = not entered
-  takeRate:   15,         // %
-  gmPct:      50,         // %
-  growth:     30,         // %
-  pat:        15,         // %
-  narrative:  1.00,
+  size:      null,
+  growth:    30,
+  pat:       15,
+  narrative: 1.0
 };
 
-// ══════════════════════════════════════════════════
-//  SLIDER HELPERS
-// ══════════════════════════════════════════════════
-// ── SYNCED SLIDER+INPUT HELPERS WITH SNAP ──
-
-// Snap raw value to nearest 0.5 (covers integers too, e.g. 30, 30.5, 31…)
-// If already within 0.15 of a snap point, lock to it; otherwise keep raw value.
-// This gives a natural "sticky" feel without forcing rigid steps.
-function snapToHalf(raw) {
-  const snapped = Math.round(raw * 2) / 2;
-  return (Math.abs(raw - snapped) <= 0.15) ? snapped : raw;
+function fmt(n, dp=1) { return n.toFixed(dp) + '×'; }
+function fmtEV(rev, mult) {
+  if (!rev || rev <= 0) return '';
+  const ev = rev * mult;
+  if (ev >= 1000) return '$' + (ev/1000).toFixed(1) + 'B';
+  return '$' + ev.toFixed(0) + 'M';
+}
+function fmtN(n) {
+  if (n >= 1000) return '$' + (n/1000).toFixed(1) + 'B';
+  return '$' + n.toFixed(0) + 'M';
 }
 
-// Narrative snaps to nearest 0.25×
-function snapToQuarter(raw) {
-  const snapped = Math.round(raw * 4) / 4;
-  return (Math.abs(raw - snapped) <= 0.08) ? snapped : raw;
-}
-
-function fillSlider(el) {
-  const pct = (parseFloat(el.value) - parseFloat(el.min)) / (parseFloat(el.max) - parseFloat(el.min)) * 100;
-  el.style.background =
-    `linear-gradient(to right, var(--green-mid) ${pct}%, var(--grey-200) ${pct}%)`;
-}
-
-function updateInputStyle(inputEl, v) {
-  inputEl.className = 'slider-text-input ' + (v < 0 ? 'neg' : v === 0 ? 'warn' : '');
-}
-
-function fmtSliderVal(v) {
-  // Show integer if whole, one decimal if .5, else one decimal
-  if (v % 1 === 0) return v.toFixed(0);
-  return v.toFixed(1);
-}
-
-// Called when slider moves → snaps → syncs text input
-function onSliderNew(sliderEl, inputId, key, suffix, signed) {
-  const raw = parseFloat(sliderEl.value);
-  const mn = parseFloat(sliderEl.min), mx = parseFloat(sliderEl.max);
-  const v = Math.max(mn, Math.min(mx, snapToHalf(raw)));
-  // Write snapped value back to slider so thumb jumps to snap point
-  sliderEl.value = v;
-  if (key) S[key] = v;
-  const inputEl = document.getElementById(inputId);
-  inputEl.value = fmtSliderVal(v);
-  updateInputStyle(inputEl, v);
-  fillSlider(sliderEl);
-}
-
-// Called when text input changes → syncs slider (no snap — let user type exact values)
-function onTextInput(inputEl, sliderId, key, suffix, signed) {
-  let v = parseFloat(inputEl.value);
-  const sliderEl = document.getElementById(sliderId);
-  const mn = parseFloat(sliderEl.min), mx = parseFloat(sliderEl.max);
-  if (isNaN(v)) return;
-  v = Math.max(mn, Math.min(mx, v));
-  if (key) S[key] = v;
-  sliderEl.value = v;
-  updateInputStyle(inputEl, v);
-  fillSlider(sliderEl);
+function syncFromSlider(key) {
+  const sl = document.getElementById(key + 'Slider');
+  const tx = document.getElementById(key + 'Text');
+  tx.value = parseFloat(sl.value).toFixed(key === 'narrative' ? 1 : 0);
+  updateSliderStyle(key, parseFloat(sl.value));
   calculate();
 }
-
-// Narrative: snaps to nearest 0.25×
-function onNarrativeSliderNew(el) {
-  const raw = parseFloat(el.value);
-  const v = Math.max(0.5, Math.min(2.0, snapToQuarter(raw)));
-  el.value = v;
-  S.narrative = parseFloat(v.toFixed(2));
-  const inputEl = document.getElementById('narrativeInput');
-  inputEl.value = S.narrative.toFixed(2);
-  inputEl.className = 'slider-text-input ' + (S.narrative < 1 ? 'warn' : '');
-  fillSlider(el);
-}
-
-function onNarrativeTextInput(inputEl) {
-  let v = parseFloat(inputEl.value);
-  if (isNaN(v)) return;
-  v = Math.max(0.5, Math.min(2.0, parseFloat(v.toFixed(2))));
-  S.narrative = v;
-  const sliderEl = document.getElementById('narrativeSlider');
-  sliderEl.value = v;
-  inputEl.value = v.toFixed(2);
-  inputEl.className = 'slider-text-input ' + (v < 1 ? 'warn' : '');
-  fillSlider(sliderEl);
+function syncFromText(key) {
+  const tx = document.getElementById(key + 'Text');
+  const sl = document.getElementById(key + 'Slider');
+  let v = parseFloat(tx.value);
+  if (!isNaN(v)) {
+    const mn = parseFloat(sl.min), mx = parseFloat(sl.max);
+    sl.value = Math.min(Math.max(v, mn), mx);
+  }
+  updateSliderStyle(key, v);
   calculate();
 }
-
-// Legacy stubs
-function onSlider(el, badgeId, suffix, signed, key) {
-  const v = parseFloat(el.value);
-  if (key) S[key] = v;
-  fillSlider(el);
-}
-function onNarrativeSlider(el) { onNarrativeSliderNew(el); }
-
-// ══════════════════════════════════════════════════
-//  METRIC SELECT
-// ══════════════════════════════════════════════════
-function selectMetric(metric, el) {
-  S.metric = metric;
-  document.querySelectorAll('.metric-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-
-  const labels = {
-    revenue: 'Annual Revenue (USD $M)',
-    gmv:     'Annual GMV (USD $M)',
-    gm:      'Annual Gross Profit (USD $M)',
-  };
-  document.getElementById('metricSizeLabel').textContent = labels[metric];
-
-  // show/hide conditional panels
-  document.getElementById('panelGMV').classList.toggle('shown', metric === 'gmv');
-  document.getElementById('panelGM' ).classList.toggle('shown', metric === 'gm');
-
-  calculate();
+function updateSliderStyle(key, v) {
+  const tx = document.getElementById(key + 'Text');
+  tx.classList.remove('neg','warn');
+  if (key === 'growth') {
+    if (v <= 0) tx.classList.add('neg');
+    else if (v > 100) tx.classList.add('warn');
+  }
+  // slider fill
+  const sl = document.getElementById(key + 'Slider');
+  const mn = parseFloat(sl.min), mx = parseFloat(sl.max);
+  const pct = ((Math.min(Math.max(v,mn),mx) - mn) / (mx - mn)) * 100;
+  sl.style.background = `linear-gradient(to right, var(--green-mid) ${pct}%, var(--grey-200) ${pct}%)`;
 }
 
-// ══════════════════════════════════════════════════
-//  ALERT HELPERS
-// ══════════════════════════════════════════════════
-function showAlert(id, msg, fix) {
-  const el = document.getElementById(id);
-  el.style.display = 'block';
-  el.classList.add('shown');
-  if (msg !== null) document.getElementById(id + 'Msg').textContent = msg;
-  if (fix !== null && document.getElementById(id + 'Fix'))
-    document.getElementById(id + 'Fix').innerHTML = fix ? '→ ' + fix : '';
-}
-function hideAlert(id) {
-  const el = document.getElementById(id);
-  el.style.display = 'none';
-  el.classList.remove('shown');
-}
-function setFieldError(rowId, isError) {
-  const row = document.getElementById(rowId);
-  if (row) row.classList.toggle('error-field', isError);
+function validate() {
+  const size     = parseFloat(document.getElementById('metricSize').value);
+  const growth   = parseFloat(document.getElementById('growthText').value);
+  const pat      = parseFloat(document.getElementById('patText').value);
+
+  const sizeOk    = isNaN(size) || size > 0;
+  const growthOk  = !isNaN(growth) && growth > 0;
+  const growthHi  = growth > 100;
+  const patOk     = !isNaN(pat) && pat >= 1 && pat <= 50;
+
+  show('sizeError',   !sizeOk);
+  show('growthError', !isNaN(growth) && growth <= 0);
+  show('growthWarn',  growthOk && growthHi);
+  show('patError',    !patOk);
+
+  document.getElementById('sizeRow').classList.toggle('error-field', !sizeOk);
+
+  return sizeOk && growthOk && patOk;
 }
 
-// ══════════════════════════════════════════════════
-//  FORMAT HELPERS
-// ══════════════════════════════════════════════════
-function fmtM(x) {
-  if (x === null || isNaN(x)) return '—';
-  if (x >= 1000) return '$' + (x/1000).toFixed(1) + 'B';
-  if (x >= 1)    return '$' + x.toFixed(1) + 'M';
-  return '$' + (x * 1000).toFixed(0) + 'K';
-}
-function fmtX(x) {
-  if (x === null || isNaN(x) || !isFinite(x)) return '—';
-  return (Math.abs(x) < 0.1 ? x.toFixed(2) : x.toFixed(1)) + '×';
+function show(id, flag) {
+  document.getElementById(id).classList.toggle('shown', flag);
 }
 
-// ══════════════════════════════════════════════════
-//  MAIN CALCULATE
-// ══════════════════════════════════════════════════
+function computeMultiple(growth, pat, narrative) {
+  const pe = growth;  // PEG = 1
+  return (pat / 100) * pe * narrative;
+}
+
 function calculate() {
-  // Read live state from sliders
-  S.growth    = parseFloat(document.getElementById('growthInput').value)   || S.growth;
-  S.pat       = parseFloat(document.getElementById('patInput').value)      || S.pat;
-  S.takeRate  = parseFloat(document.getElementById('takeRateInput').value) || S.takeRate;
-  S.gmPct     = parseFloat(document.getElementById('gmPctInput').value)    || S.gmPct;
-  S.metricSize = parseFloat(document.getElementById('metricSizeInput').value) || null;
+  const sizeRaw  = document.getElementById('metricSize').value;
+  const growth   = parseFloat(document.getElementById('growthText').value);
+  const pat      = parseFloat(document.getElementById('patText').value);
+  const narrative= parseFloat(document.getElementById('narrativeText').value);
 
-  const { metric, growth, pat, takeRate, gmPct, narrative, metricSize } = S;
+  const size     = sizeRaw === '' ? null : parseFloat(sizeRaw);
+  const valid    = validate();
 
-  // ── CLEAR ALL ALERTS ──
-  ['errGrowth','errPAT','errTakeRate','errGMPct','globalError'].forEach(hideAlert);
-  setFieldError('metricSizeRow', false);
-
-  let errors = [];
-
-  // ── VALIDATE: Metric size ──
-  if (metricSize !== null && metricSize <= 0) {
-    setFieldError('metricSizeRow', true);
-    errors.push({ id: 'globalError', title: '⚠ Invalid Metric Size',
-      msg: `The entered value must be greater than $0M. A zero or negative base metric is undefined in this framework.`,
-      fix: 'Enter a positive dollar amount (e.g. $5M, $50M).'
-    });
+  // narrative label
+  const nl = document.getElementById('narrativeLabel');
+  if (!isNaN(narrative)) {
+    if (narrative < 0.85)      nl.textContent = 'Discount — below-market narrative, execution risk, or category headwinds.';
+    else if (narrative > 1.15) nl.textContent = 'Premium — exceptional moat, category leadership, or strong tailwinds.';
+    else                       nl.textContent = 'Par — market-rate narrative, no material premium or discount applied.';
   }
 
-  // ── VALIDATE: Growth ──
-  if (growth <= 0) {
-    showAlert('errGrowth',
-      `Growth of ${growth}% implies a PE multiple ≤ 0, which produces a zero or negative valuation — mathematically undefined in a PEG framework.`,
-      `<strong>Set growth above 0%.</strong> A minimum of ~5% is needed to generate a meaningful valuation multiple.`
-    );
-    errors.push({ id:'__growthInvalid' });
-  } else if (growth > 100) {
-    showAlert('errGrowth',
-      `Growth of ${growth}% is hyper-growth territory. Mathematically valid, but multiples at this level should be discounted for execution risk and mean reversion.`,
-      null
-    );
-    document.getElementById('errGrowth').className = 'alert alert-warn shown';
-  }
-
-  // ── VALIDATE: Take Rate (GMV) ──
-  if (metric === 'gmv') {
-    if (takeRate <= 0 || takeRate > 100) {
-      showAlert('errTakeRate',
-        `Take rate of ${takeRate}% is outside a valid range. It must be between 0.1% and 100%.`,
-        'Set a realistic take rate. Typical ranges: e-commerce 1–3%, food delivery 15–25%, SaaS marketplace 20–30%.'
-      );
-      errors.push({ id:'__takeRateInvalid' });
-    }
-  }
-
-  // ── VALIDATE: GM% ──
-  if (metric === 'gm') {
-    if (gmPct <= 0) {
-      showAlert('errGMPct',
-        `A Gross Margin of ${gmPct}% means zero or negative gross profit. Applying a valuation multiple to non-positive gross profit is undefined.`,
-        '<strong>Set Gross Margin above 0%.</strong> Even thin-margin businesses typically show 5–20% gross margins at scale.'
-      );
-      errors.push({ id:'__gmPctInvalid' });
-    } else if (gmPct <= pat) {
-      showAlert('errGMPct',
-        `PAT margin (${pat}%) equals or exceeds Gross Margin (${gmPct}%). PAT structurally cannot exceed Gross Profit — operating expenses (salaries, marketing, admin) must reduce it further.`,
-        `<strong>Either increase Gross Margin above ${pat}% or reduce PAT margin below ${gmPct}%.</strong>`
-      );
-      errors.push({ id:'__gmPatConflict' });
-    }
-  }
-
-  // ── VALIDATE: PAT (standalone) ──
-  if (pat <= 0) {
-    showAlert('errPAT',
-      `PAT margin of ${pat}% means zero steady-state earnings. A PE-based multiple applied to zero earnings yields an undefined result.`,
-      '<strong>Set PAT above 1%.</strong> Even asset-light businesses should target 5–15% steady-state PAT margins.'
-    );
-    errors.push({ id:'__patInvalid' });
-  }
-
-  // ── IF ERRORS, SHOW INVALID STATE ──
-  if (errors.length > 0) {
+  if (!valid) {
     document.getElementById('resultInvalid').classList.add('shown');
-    document.getElementById('resultInvalid').style.display = 'block';
     document.getElementById('resultValid').classList.add('hidden');
-    const mainErr = errors.find(e => !e.id.startsWith('__'));
-    if (mainErr) {
-      showAlert('globalError', mainErr.msg, mainErr.fix);
-      document.getElementById('globalErrTitle').textContent = mainErr.title;
-    }
-    // Blank scenarios
-    ['scBear','scBase','scBull'].forEach(id => document.getElementById(id).textContent = '—');
+    document.getElementById('invalidMsg').textContent = 'Resolve the input errors above to calculate a multiple.';
     return;
   }
 
-  // ── ALL VALID — compute ──
-  document.getElementById('resultInvalid').style.display = 'none';
   document.getElementById('resultInvalid').classList.remove('shown');
   document.getElementById('resultValid').classList.remove('hidden');
 
-  const result = computeMultiple(growth, pat, metric, takeRate, gmPct, narrative);
+  const pe   = growth;
+  const mult = computeMultiple(growth, pat, narrative);
 
-  // ── UPDATE UI ──
-  const metricLabels = {
-    revenue: 'EV / Revenue Multiple',
-    gmv:     'EV / GMV Multiple',
-    gm:      'EV / Gross Profit Multiple',
-  };
-  const metricPills  = {
-    revenue: 'EV / Revenue',
-    gmv:     'EV / GMV',
-    gm:      'EV / Gross Profit',
-  };
-
-  document.getElementById('multipleLabel').textContent  = metricLabels[metric];
-  document.getElementById('metricPill').textContent     = metricPills[metric];
-  document.getElementById('resultMetaLabel').textContent =
-    `PEG = 1.0 · ${metricPills[metric]} · Narrative ${narrative.toFixed(2)}×`;
-
-  const numEl = document.getElementById('multipleNumber');
-  numEl.classList.remove('pop');
-  void numEl.offsetWidth;
-  numEl.classList.add('pop');
-  numEl.textContent = fmtX(result.final);
-
+  // hero
+  document.getElementById('multipleNumber').textContent = fmt(mult);
   document.getElementById('multipleSub').textContent =
-    `at ${growth > 0 ? '+' : ''}${growth}% growth · ${pat}% PAT · ${narrative.toFixed(2)}× narrative`;
+    `at ${growth}% growth · ${pat}% PAT · ${narrative.toFixed(1)}× narrative`;
 
-  // Implied EV
-  const evBlock = document.getElementById('impliedEvBlock');
-  if (metricSize && metricSize > 0) {
-    const impliedEV = result.final * metricSize;
-    document.getElementById('impliedEvVal').textContent = fmtM(impliedEV);
-    evBlock.style.display = 'block';
+  // EV
+  if (size && size > 0) {
+    const ev = size * mult;
+    document.getElementById('impliedEvBlock').style.display = 'block';
+    document.getElementById('impliedEvVal').textContent = fmtN(ev);
   } else {
-    evBlock.style.display = 'none';
+    document.getElementById('impliedEvBlock').style.display = 'none';
   }
 
-  // Formula
-  document.getElementById('formulaBox').innerHTML = result.formula;
+  // formula
+  document.getElementById('formulaBox').innerHTML =
+    `EV/Rev <span class="fo">=</span> PAT% <span class="fo">×</span> PE <span class="fo">×</span> Narrative` +
+    `<br><span class="fr">${fmt(mult)}</span> <span class="fo">=</span> ` +
+    `<span class="fv">${pat}%</span> <span class="fo">×</span> ` +
+    `<span class="fv">${pe.toFixed(0)}×</span> <span class="fo">×</span> ` +
+    `<span class="fv">${narrative.toFixed(1)}×</span>`;
 
-  // Waterfall
-  document.querySelector('#wfTable tbody').innerHTML = result.waterfall;
+  // waterfall
+  const baseMultiple = (pat / 100) * pe;
+  const tbody = document.querySelector('#wfTable tbody');
+  tbody.innerHTML = `
+    <tr>
+      <td class="wf-name">PE Anchor</td>
+      <td class="wf-note">PEG 1.0 × growth rate</td>
+      <td class="wf-num">${pe.toFixed(0)}×</td>
+    </tr>
+    <tr>
+      <td class="wf-name">× PAT Margin</td>
+      <td class="wf-note">${pat}% steady-state</td>
+      <td class="wf-num">${baseMultiple.toFixed(2)}×</td>
+    </tr>
+    <tr>
+      <td class="wf-name">× Narrative</td>
+      <td class="wf-note">${narrative.toFixed(1)}× overlay</td>
+      <td class="wf-num">${fmt(mult)}</td>
+    </tr>
+    <tr class="wf-final">
+      <td class="wf-name">EV / Revenue Multiple</td>
+      <td class="wf-note"></td>
+      <td class="wf-num">${fmt(mult)}</td>
+    </tr>
+  `;
 
-  // Scenarios
-  const bear = computeMultiple(growth, pat, metric, takeRate, gmPct, narrative * 0.75).final;
-  const bull = computeMultiple(growth, pat, metric, takeRate, gmPct, narrative * 1.5).final;
-  const base = result.final;
-
-  document.getElementById('scBear').textContent = fmtX(bear);
-  document.getElementById('scBase').textContent = fmtX(base);
-  document.getElementById('scBull').textContent = fmtX(bull);
-
-  if (metricSize && metricSize > 0) {
-    document.getElementById('scBearEv').textContent = 'EV ' + fmtM(bear * metricSize);
-    document.getElementById('scBaseEv').textContent = 'EV ' + fmtM(base * metricSize);
-    document.getElementById('scBullEv').textContent = 'EV ' + fmtM(bull * metricSize);
+  // scenarios
+  const bear = computeMultiple(growth, pat, narrative * 0.75);
+  const bull = computeMultiple(growth, pat, narrative * 1.5);
+  document.getElementById('scBear').textContent = fmt(bear);
+  document.getElementById('scBase').textContent = fmt(mult);
+  document.getElementById('scBull').textContent = fmt(bull);
+  if (size && size > 0) {
+    document.getElementById('scBearEv').textContent = fmtEV(size, bear);
+    document.getElementById('scBaseEv').textContent = fmtEV(size, mult);
+    document.getElementById('scBullEv').textContent = fmtEV(size, bull);
   } else {
-    ['scBearEv','scBaseEv','scBullEv'].forEach(id =>
-      document.getElementById(id).textContent = 'Enter size for EV');
+    ['scBearEv','scBaseEv','scBullEv'].forEach(id => document.getElementById(id).textContent = '');
   }
 }
 
-// ══════════════════════════════════════════════════
-//  COMPUTE ENGINE
-// ══════════════════════════════════════════════════
-function computeMultiple(growth, pat, metric, takeRate, gmPct, narrative) {
-  const g  = growth;           // PE = g under PEG = 1
-  const p  = pat / 100;
-  const tr = takeRate / 100;
-  const gm = gmPct / 100;
-
-  let base, formula, waterfall;
-
-  if (metric === 'revenue') {
-    base = p * g;
-    formula =
-      `<span class="fo">EV/Rev</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fv">PAT% (${pat}%)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">PE (${g}×)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">Narrative (${narrative.toFixed(2)}×)</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fr">${fmtX(base * narrative)}</span>`;
-    waterfall = `
-      <tr><td class="wf-name">PE Multiple <span class="wf-note">(PEG=1 → PE = Growth% = ${g}×)</span></td><td class="wf-num">${g.toFixed(0)}×</td></tr>
-      <tr><td class="wf-name">× PAT Margin (% of Revenue) <span class="wf-note">${pat}%</span></td><td class="wf-num">${pat}%</td></tr>
-      <tr><td class="wf-name">= Base EV/Revenue <span class="wf-note">pre-narrative</span></td><td class="wf-num">${fmtX(base)}</td></tr>
-      <tr class="wf-final"><td class="wf-name">× Narrative ${narrative.toFixed(2)}× → Final EV/Revenue</td><td class="wf-num">${fmtX(base*narrative)}</td></tr>`;
-
-  } else if (metric === 'gmv') {
-    const revMultiple = p * g;
-    base = tr * revMultiple;
-    formula =
-      `<span class="fo">EV/GMV</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fv">Take Rate (${takeRate}%)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">PAT% (${pat}%)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">PE (${g}×)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">Narrative (${narrative.toFixed(2)}×)</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fr">${fmtX(base * narrative)}</span>`;
-    waterfall = `
-      <tr><td class="wf-name">EV/Revenue Base <span class="wf-note">PAT% × PE = ${pat}% × ${g}×</span></td><td class="wf-num">${fmtX(revMultiple)}</td></tr>
-      <tr><td class="wf-name">× Take Rate <span class="wf-note">Revenue as % of GMV = ${takeRate}%</span></td><td class="wf-num">× ${takeRate}%</td></tr>
-      <tr><td class="wf-name">= Base EV/GMV <span class="wf-note">pre-narrative</span></td><td class="wf-num">${fmtX(base)}</td></tr>
-      <tr class="wf-final"><td class="wf-name">× Narrative ${narrative.toFixed(2)}× → Final EV/GMV</td><td class="wf-num">${fmtX(base*narrative)}</td></tr>`;
-
-  } else { // gm
-    const revMultiple = p * g;
-    base = revMultiple / gm;
-    formula =
-      `<span class="fo">EV/GP</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fo">(</span><span class="fv">PAT% (${pat}%)</span>&nbsp;<span class="fo">÷</span>&nbsp;`+
-      `<span class="fv">GM% (${gmPct}%)</span><span class="fo">)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">PE (${g}×)</span>&nbsp;<span class="fo">×</span>&nbsp;`+
-      `<span class="fv">Narrative (${narrative.toFixed(2)}×)</span>&nbsp;<span class="fo">=</span>&nbsp;`+
-      `<span class="fr">${fmtX(base * narrative)}</span>`;
-    waterfall = `
-      <tr><td class="wf-name">EV/Revenue Base <span class="wf-note">PAT% × PE = ${pat}% × ${g}×</span></td><td class="wf-num">${fmtX(revMultiple)}</td></tr>
-      <tr><td class="wf-name">÷ Gross Margin% <span class="wf-note">Converts EV/Rev → EV/Gross Profit</span></td><td class="wf-num">÷ ${gmPct}%</td></tr>
-      <tr><td class="wf-name">= Base EV/Gross Profit <span class="wf-note">pre-narrative</span></td><td class="wf-num">${fmtX(base)}</td></tr>
-      <tr class="wf-final"><td class="wf-name">× Narrative ${narrative.toFixed(2)}× → Final EV/GP</td><td class="wf-num">${fmtX(base*narrative)}</td></tr>`;
-  }
-
-  return { base, final: base * narrative, formula, waterfall };
-}
-
-// ══════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded', () => {
-  ['growthSlider','patSlider','takeRateSlider','gmPctSlider','narrativeSlider']
-    .forEach(id => fillSlider(document.getElementById(id)));
-  onNarrativeSlider(document.getElementById('narrativeSlider'));
-  calculate();
+// init slider fills
+['growth','pat','narrative'].forEach(k => {
+  const sl = document.getElementById(k + 'Slider');
+  const v  = parseFloat(sl.value);
+  const mn = parseFloat(sl.min), mx = parseFloat(sl.max);
+  const pct = ((v - mn) / (mx - mn)) * 100;
+  sl.style.background = `linear-gradient(to right, var(--green-mid) ${pct}%, var(--grey-200) ${pct}%)`;
 });
+
+calculate();
 </script>
 </body>
 </html>
