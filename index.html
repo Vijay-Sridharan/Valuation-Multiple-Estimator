@@ -618,6 +618,7 @@ input[type=range]::-moz-range-thumb {
       <div class="method-pill">Base market: <strong>Listed equity comps</strong></div>
     </div>
   </div>
+
 </div>
 
 <!-- PAGE BODY -->
@@ -885,6 +886,36 @@ input[type=range]::-moz-range-thumb {
   </div><!-- /result-shell -->
 
 </div><!-- /page -->
+
+<!-- ASSUMPTIONS -->
+<div style="max-width:900px;margin:32px auto 0;padding:0 24px 40px;">
+  <div style="border-top:1px solid #d4ebe4;padding-top:24px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#00a581;margin-bottom:14px;">Assumptions &amp; Limitations</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+
+      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
+        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">1 · No Leverage</div>
+        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Assumes Net Debt = 0, so Equity Value ≈ Enterprise Value. The PE anchor is an equity multiple; EV/Revenue and EV/GMV are enterprise multiples. Valid for equity-funded early-stage companies. Adjust for leveraged businesses.</div>
+      </div>
+
+      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
+        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">2 · No Minority Interests</div>
+        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Treats the entity as 100% owned. Where significant subsidiaries are not wholly owned, the multiple will overstate value attributable to the parent. Use a sum-of-parts approach instead.</div>
+      </div>
+
+      <div style="padding:12px 14px;background:#f7fdfb;border:1px solid #d4ebe4;border-top:2px solid #00a581;border-radius:6px;">
+        <div style="font-size:10px;font-weight:700;color:#004d3a;margin-bottom:4px;">3 · Steady-State PAT Margin</div>
+        <div style="font-size:11px;color:#4a6b60;line-height:1.6;">Enter the normalised at-scale margin, not the current one. Current losses will produce undefined multiples. Think of this as the terminal-year margin in a DCF — what the business earns once growth moderates.</div>
+      </div>
+
+      <div style="padding:12px 14px;background:#fff8f3;border:1px solid #f2d4b8;border-top:2px solid #e87c2e;border-radius:6px;">
+        <div style="font-size:10px;font-weight:700;color:#7a3a10;margin-bottom:4px;">4 · Financial Services</div>
+        <div style="font-size:11px;color:#5a3a20;line-height:1.6;">Not directly applicable to banks or NBFCs — revenue is a function of leverage, making EV/Revenue unreliable. Use PE directly (Revenue = PAT, all margins at 100%). For P/BV: enter Loan Book as GTV and NIM as take rate. Using equity ratio as take rate works algebraically but makes PAT margin mean ROE — use with care.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="page-footer">
